@@ -6,13 +6,11 @@ An elegant and responsive Flutter application that fetches and displays job list
 
 ## 📱 Screenshots & Screen Recording
 
-> **Note:** Add your actual screenshots and screen recording files to the `screenshots/` and `recording/` directories respectively.
+| Home Screen | Job Detail Screen | Search Functionality |
+| :---: | :---: | :---: |
+| <img src="screenshots/Home screen.jpeg" width="250"/> | <img src="screenshots/Detail Screen.jpeg" width="250"/> | <img src="screenshots/Search Functionality.jpeg" width="250"/> |
 
-| Home Screen | Job Detail Screen |
-| :---: | :---: |
-| <img src="screenshots/home.png" width="250"/> | <img src="screenshots/detail.png" width="250"/> |
-
-🎥 **Screen Recording:** [Watch Demo](recording/demo.mp4)
+🎥 **Screen Recording:** [Watch Demo](recording/Screen%20Recording.mp4)
 
 ---
 
