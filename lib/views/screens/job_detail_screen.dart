@@ -7,12 +7,10 @@ class JobDetailScreen extends StatelessWidget {
 
   const JobDetailScreen({super.key, required this.job});
 
-  // A simple method to clean up HTML tags so it's readable natively
   String _stripHtml(String text) {
     return text.replaceAll(RegExp(r'<[^>]*>|&[^;]+;'), ' ').replaceAll(RegExp(r'\s{2,}'), ' ').trim();
   }
 
-  // Opens the browser using url_launcher
   Future<void> _launchUrl() async {
     final Uri url = Uri.parse(job.url);
     if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
@@ -71,7 +69,7 @@ class JobDetailScreen extends StatelessWidget {
               ),
             ),
           ),
-          // Bottom Action Layer
+          
           Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(

@@ -4,7 +4,6 @@ import '../../controllers/job_controller.dart';
 import '../widgets/job_card.dart';
 
 class JobDashboardScreen extends StatelessWidget {
-  // Initialize the controller via GetX
   final JobController controller = Get.put(JobController());
 
   JobDashboardScreen({super.key});
@@ -21,7 +20,7 @@ class JobDashboardScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          // Search Bar Layout Context
+          //Search Bar
           Container(
             color: Colors.blueAccent,
             padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
@@ -44,12 +43,10 @@ class JobDashboardScreen extends StatelessWidget {
           // Job Feed Content
           Expanded(
             child: Obx(() {
-              // 1. Data Loading Stage
               if (controller.isLoading.value) {
                 return const Center(child: CircularProgressIndicator());
               }
               
-              // 2. Network/API Exception Handling with Fallback Hook
               if (controller.hasError.value) {
                 return Center(
                   child: Column(
@@ -85,14 +82,12 @@ class JobDashboardScreen extends StatelessWidget {
                 );
               }
               
-              // 3. Empty List Fallback
               if (controller.filteredJobs.isEmpty) {
                 return const Center(
                   child: Text('No jobs matched your search.', style: TextStyle(fontSize: 16, color: Colors.grey)),
                 );
               }
 
-              // 4. Mapped Job Cards Feed
               return ListView.builder(
                 padding: const EdgeInsets.only(top: 8, bottom: 20),
                 itemCount: controller.filteredJobs.length,

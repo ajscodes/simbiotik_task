@@ -5,7 +5,6 @@ import '../services/api_service.dart';
 class JobController extends GetxController {
   final ApiService _apiService = ApiService();
 
-  // State variables made reactive with .obs
   var allJobs = <JobModel>[].obs;
   var filteredJobs = <JobModel>[].obs;
   
@@ -19,7 +18,6 @@ class JobController extends GetxController {
     fetchJobs();
   }
 
-  // Fetch jobs from the API Service
   Future<void> fetchJobs() async {
     try {
       isLoading(true);
@@ -28,7 +26,7 @@ class JobController extends GetxController {
       
       final jobs = await _apiService.fetchJobs();
       allJobs.assignAll(jobs);
-      filteredJobs.assignAll(jobs); // Initially, filtered jobs are all jobs
+      filteredJobs.assignAll(jobs);
     } catch (e) {
       hasError(true);
       errorMessage(e.toString());
@@ -37,7 +35,6 @@ class JobController extends GetxController {
     }
   }
 
-  // Filter jobs based on search input (Title or Company Name)
   void filterJobs(String query) {
     if (query.isEmpty) {
       filteredJobs.assignAll(allJobs);
@@ -51,12 +48,11 @@ class JobController extends GetxController {
     }
   }
 
-  // Toggle bookmark status and trigger UI rebuild
   void toggleBookmark(JobModel job) {
     final indexAll = allJobs.indexOf(job);
     if (indexAll != -1) {
       allJobs[indexAll].isBookmarked = !allJobs[indexAll].isBookmarked;
-      allJobs.refresh(); // Tells Obx widgets to rebuild
+      allJobs.refresh();
       filteredJobs.refresh();
     }
   }
